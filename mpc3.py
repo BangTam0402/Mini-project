@@ -40,3 +40,13 @@ def add_ticket(tickets):
 
     print("Added successfully!")
     return tickets
+def display_tickets(tickets):
+    if not tickets:
+        print("No tickets!")
+        return
+
+    print(f"{'ID':<10}{'Movie':<20}{'Customer':<15}{'Seat':<10}{'Price':<10}")
+    print("-" * 65)
+
+    for t in tickets:
+        print(f"{t['id']:<10}{t['movie']:<20}{t['customer']:<15}{t['seat']:<10}{t['price']:<10}")
