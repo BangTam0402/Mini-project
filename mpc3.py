@@ -50,3 +50,12 @@ def display_tickets(tickets):
 
     for t in tickets:
         print(f"{t['id']:<10}{t['movie']:<20}{t['customer']:<15}{t['seat']:<10}{t['price']:<10}")
+def search_ticket(tickets):
+    keyword = input("Enter ID: ")
+
+    for t in tickets:
+        if t["id"] == keyword:
+            print("Found:", t)
+            return
+
+    print("Not found!")
