@@ -59,3 +59,8 @@ def search_ticket(tickets):
             return
 
     print("Not found!")
+def sort_tickets(tickets):
+    tickets.sort(key=lambda x: x["price"])
+    print("Sorted by price successfully!")
+    return tickets
+
