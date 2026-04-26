@@ -64,3 +64,15 @@ def sort_tickets(tickets):
     print("Sorted by price successfully!")
     return tickets
 
+def statistics(tickets):
+    if not tickets:
+        print("No data!")
+        return
+
+    total_tickets = len(tickets)
+    total_money = sum(t["price"] for t in tickets)
+    average_price = total_money / total_tickets
+
+    print("Total tickets:", total_tickets)
+    print("Total money:", total_money)
+    print("Average price:", average_price)
