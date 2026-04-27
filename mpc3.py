@@ -97,3 +97,27 @@ def save_to_txt(tickets):
 
     file.close()
     print("Saved to TXT file successfully!")
+def load_from_txt():
+    tickets = []
+
+    if not os.path.exists("tickets.txt"):
+        return tickets
+
+    file = open("tickets.txt", "r", encoding="utf-8")
+
+    for line in file:
+        data = line.strip().split("|")
+
+        if len(data) == 5:
+            ticket = {
+                "id": data[0],
+                "movie": data[1],
+                "customer": data[2],
+                "seat": data[3],
+                "price": float(data[4])
+            }
+
+            tickets.append(ticket)
+
+    file.close()
+    return tickets
