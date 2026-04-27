@@ -155,3 +155,14 @@ def export_to_json(tickets):
     file.close()
 
     print("Exported to JSON successfully!")
+def import_from_json():
+    if not os.path.exists("tickets.json"):
+        print("JSON file not found!")
+        return []
+
+    file = open("tickets.json", "r", encoding="utf-8")
+    tickets = json.load(file)
+    file.close()
+
+    print("Imported from JSON successfully!")
+    return tickets
