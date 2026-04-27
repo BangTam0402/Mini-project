@@ -149,3 +149,9 @@ def advanced_statistics(tickets):
 
     for movie, count in movie_count.items():
         print(movie, ":", count, "ticket(s)")
+def export_to_json(tickets):
+    file = open("tickets.json", "w", encoding="utf-8")
+    json.dump(tickets, file, indent=4, ensure_ascii=False)
+    file.close()
+
+    print("Exported to JSON successfully!")
