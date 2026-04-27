@@ -1,3 +1,5 @@
+import json
+import os
 tickets = []
 def display_menu():
     print("\n====== MOVIE BOOKING SYSTEM ======")
@@ -6,7 +8,12 @@ def display_menu():
     print("3. Search Ticket")
     print("4. Sort Tickets")
     print("5. Statistics")
-    print("6. Save to File")
+    print("6. Save to TXT File")
+    print("7. Load from TXT File")
+    print("8. Advanced Search")
+    print("9. Advanced Statistics")
+    print("10. Export to JSON")
+    print("11. Import from JSON")
     print("0. Exit")
 def add_ticket(tickets):
     ticket_id = input("ID: ")
@@ -76,3 +83,17 @@ def statistics(tickets):
     print("Total tickets:", total_tickets)
     print("Total money:", total_money)
     print("Average price:", average_price)
+def save_to_txt(tickets):
+    file = open("tickets.txt", "w", encoding="utf-8")
+
+    for t in tickets:
+        file.write(
+            t["id"] + "|" +
+            t["movie"] + "|" +
+            t["customer"] + "|" +
+            t["seat"] + "|" +
+            str(t["price"]) + "\n"
+        )
+
+    file.close()
+    print("Saved to TXT file successfully!")
