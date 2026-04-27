@@ -130,3 +130,22 @@ def advanced_search(tickets):
             results.append(t)
 
     display_tickets(results)
+def advanced_statistics(tickets):
+    if not tickets:
+        print("No data!")
+        return
+
+    movie_count = {}
+
+    for t in tickets:
+        movie = t["movie"]
+
+        if movie in movie_count:
+            movie_count[movie] += 1
+        else:
+            movie_count[movie] = 1
+
+    print("\n====== TICKETS BY MOVIE ======")
+
+    for movie, count in movie_count.items():
+        print(movie, ":", count, "ticket(s)")
