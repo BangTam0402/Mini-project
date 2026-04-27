@@ -121,3 +121,12 @@ def load_from_txt():
 
     file.close()
     return tickets
+def advanced_search(tickets):
+    keyword = input("Enter part of movie name: ").lower()
+    results = []
+
+    for t in tickets:
+        if keyword in t["movie"].lower():
+            results.append(t)
+
+    display_tickets(results)
