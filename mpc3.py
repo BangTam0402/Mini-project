@@ -166,3 +166,54 @@ def import_from_json():
 
     print("Imported from JSON successfully!")
     return tickets
+def main():
+    tickets = load_from_txt()
+
+    while True:
+        display_menu()
+        choice = input("Choose: ")
+
+        if choice == "1":
+            tickets = add_ticket(tickets)
+
+        elif choice == "2":
+            display_tickets(tickets)
+
+        elif choice == "3":
+            search_ticket(tickets)
+
+        elif choice == "4":
+            tickets = sort_tickets(tickets)
+
+        elif choice == "5":
+            statistics(tickets)
+
+        elif choice == "6":
+            save_to_txt(tickets)
+
+        elif choice == "7":
+            tickets = load_from_txt()
+            print("Loaded from TXT file successfully!")
+
+        elif choice == "8":
+            advanced_search(tickets)
+
+        elif choice == "9":
+            advanced_statistics(tickets)
+
+        elif choice == "10":
+            export_to_json(tickets)
+
+        elif choice == "11":
+            tickets = import_from_json()
+
+        elif choice == "0":
+            save_to_txt(tickets)
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid choice!")
+
+
+main()
